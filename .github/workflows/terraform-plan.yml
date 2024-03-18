@@ -1,14 +1,12 @@
 name: "Terraform Plan"
 
 on:
-  push:
-    branches:
-      - "master"
+  pull_request:
 
 env:
   TF_CLOUD_ORGANIZATION: "la7rodectus"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "learn-terraform-github-actions"
+  TF_WORKSPACE: "${{ secrets.TF_WORKSPACE }}"
   CONFIG_DIRECTORY: "./"
 
 jobs:
