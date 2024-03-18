@@ -3,6 +3,27 @@ provider "aws" {
   profile    = "ci-test"
 }
 
+terraform {
+  cloud {
+    organization = "La7rodectus"
+    workspaces {
+      tags = ["test-app"]
+    }
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "4.52.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.4.3"
+    }
+  }
+  required_version = ">= 1.1.0"
+}
+
 resource "aws_instance" "web_server" {
   ami           = "ami-05fb0b8c1424f266b"
   instance_type = "t2.micro"
