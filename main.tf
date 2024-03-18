@@ -7,7 +7,7 @@ terraform {
   cloud {
     organization = "La7rodectus"
     workspaces {
-      tags = ["test-app"]
+      tags = ["ci-test-lab"]
     }
   }
 
