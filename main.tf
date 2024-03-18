@@ -5,23 +5,12 @@ provider "aws" {
 
 terraform {
   cloud {
-    organization = "La7rodectus"
-    workspaces {
-      tags = ["ci-test-lab"]
-    }
-  }
+    organization = "la7rodectus"
 
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "4.52.0"
-    }
-    random = {
-      source  = "hashicorp/random"
-      version = "3.4.3"
+    workspaces {
+      name = "ci-test-lab"
     }
   }
-  required_version = ">= 1.1.0"
 }
 
 resource "aws_instance" "web_server" {
