@@ -49,7 +49,7 @@ resource "aws_security_group_rule" "allow_https" {
 }
 
 resource "aws_security_group_rule" "allow_all" {
-  type              = "ingress"
+  type              = "egress"
   description       = "allow all"
   from_port         = 0
   to_port           = 0
